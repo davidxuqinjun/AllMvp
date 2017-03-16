@@ -1,6 +1,6 @@
 package com.david.mvpframework.ui.user.component;
 
-import com.david.mvpframework.app.SmartSDNComponent;
+import com.david.mvpframework.app.MvpAppComponent;
 import com.david.mvpframework.ui.user.Scope.UserScope;
 import com.david.mvpframework.ui.user.activitys.UserLoginActivity;
 import com.david.mvpframework.ui.user.module.UserLoginModule;
@@ -14,7 +14,7 @@ import dagger.Component;
  * 邮箱：342211385@qq.com
  */
 @UserScope
-@Component(dependencies = SmartSDNComponent.class,
+@Component(dependencies = MvpAppComponent.class,
         modules = {UserServiceModule.class, UserLoginModule.class})
 public interface UserComponent {
 

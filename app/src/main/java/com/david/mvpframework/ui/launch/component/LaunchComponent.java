@@ -1,6 +1,6 @@
 package com.david.mvpframework.ui.launch.component;
 
-import com.david.mvpframework.app.SmartSDNComponent;
+import com.david.mvpframework.app.MvpAppComponent;
 import com.david.mvpframework.ui.launch.LauncherActivity;
 import com.david.mvpframework.ui.launch.module.LaunchModule;
 import com.david.mvpframework.ui.launch.module.LaunchServiceModule;
@@ -14,7 +14,7 @@ import dagger.Component;
  * 邮箱：342211385@qq.com
  */
 @LaunchScope
-@Component(dependencies = SmartSDNComponent.class,
+@Component(dependencies = MvpAppComponent.class,
         modules = {LaunchModule.class, LaunchServiceModule.class})
 public interface LaunchComponent {
 

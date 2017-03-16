@@ -108,7 +108,7 @@ public class MD5DigestUtil {
             //System.out.println("md5 s:"+md5Str);
             return checkMD5(sourceFile, md5Str);
         } else {
-            SmartSDNLoger.debug("File not exist:" + md5File.getAbsolutePath());
+            MvpLoger.debug("File not exist:" + md5File.getAbsolutePath());
         }
         return f;
 

@@ -11,8 +11,7 @@ import retrofit2.converter.fastjson.FastJsonConverterFactory;
  * Retrofit请求设置
  */
 public class MyRetrofit {
-    //private static final String BASE_URL = "http://xxxxxx.xxx.xxxx/";
-    //private static final String BASE_URL = "http://192.168.0.163:8080/";
+
     private static Retrofit retrofit;
 
     public MyRetrofit(OkHttpClient okHttpClient) {

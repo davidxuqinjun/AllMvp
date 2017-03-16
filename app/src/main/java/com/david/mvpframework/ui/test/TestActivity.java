@@ -3,18 +3,18 @@ package com.david.mvpframework.ui.test;
 import android.os.Bundle;
 
 import com.david.mvpframework.R;
-import com.david.mvpframework.app.SmartSDNApplication;
-import com.david.mvpframework.app.SmartSDNComponent;
+import com.david.mvpframework.app.MvpAppApplication;
+import com.david.mvpframework.app.MvpAppComponent;
 import com.david.mvpframework.ui.base.MvpActivity;
 import com.david.mvpframework.ui.launch.been.response.AppUpdateResponse;
 import com.david.mvpframework.ui.launch.module.LaunchServiceModule;
-import com.david.mvpframework.utils.SmartSDNLoger;
+import com.david.mvpframework.utils.MvpLoger;
 
 import javax.inject.Inject;
 
 public class TestActivity extends MvpActivity<TestPresenter> implements TestView {
 
-    private SmartSDNApplication application;
+    private MvpAppApplication application;
 
     @Inject
     TestPresenter testPresenter;
@@ -24,17 +24,17 @@ public class TestActivity extends MvpActivity<TestPresenter> implements TestView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        application = (SmartSDNApplication) getApplication();
+        application = (MvpAppApplication) getApplication();
 
-        SmartSDNComponent component = application.getSmartSDNComponent();
-        DaggerTestComponent.builder().smartSDNComponent(application.getSmartSDNComponent())
+        MvpAppComponent component = application.getMvpAppComponent();
+        DaggerTestComponent.builder().mvpAppComponent(component)
                 .launchServiceModule(new LaunchServiceModule())
                 .testModule(new TestModule(this))
                 .build()
                 .inject(this);
 
-        SmartSDNLoger.debug("=====presenter=======" + presenter.getClass().getSimpleName());
-        SmartSDNLoger.debug("=====testPresenter=======" + testPresenter.getClass().getSimpleName());
+        MvpLoger.debug("=====presenter=======" + presenter.getClass().getSimpleName());
+        MvpLoger.debug("=====testPresenter=======" + testPresenter.getClass().getSimpleName());
 
 
     }

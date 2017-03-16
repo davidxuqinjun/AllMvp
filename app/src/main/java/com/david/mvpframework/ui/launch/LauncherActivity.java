@@ -22,8 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.david.mvpframework.R;
-import com.david.mvpframework.app.SmartSDNApplication;
-import com.david.mvpframework.app.SmartSDNComponent;
+import com.david.mvpframework.app.MvpAppApplication;
+import com.david.mvpframework.app.MvpAppComponent;
 import com.david.mvpframework.common.Constant;
 import com.david.mvpframework.ui.base.MvpActivity;
 import com.david.mvpframework.ui.launch.been.request.AppUpdateRequest;
@@ -37,7 +37,7 @@ import com.david.mvpframework.ui.user.activitys.UserLoginActivity;
 import com.david.mvpframework.utils.FileUtils;
 import com.david.mvpframework.utils.MySharedPreferences;
 import com.david.mvpframework.utils.PermissionUtils;
-import com.david.mvpframework.utils.SmartSDNLoger;
+import com.david.mvpframework.utils.MvpLoger;
 import com.david.mvpframework.utils.SystemTool;
 import com.david.mvpframework.utils.ToastUtils;
 
@@ -104,7 +104,7 @@ public class LauncherActivity extends MvpActivity<AppVersionUpdatePresenter> imp
                         text_view.setText(result + "%");
                         break;
                     case 2:
-                        SmartSDNLoger.debug("===============" + "文件下载完成");
+                        MvpLoger.debug("===============" + "文件下载完成");
                         //安卓APP
                         SystemTool.installApk(getApplicationContext(), new File(FileUtils.getSavePath(Constant.SmartSDNFile.APP_PATH) + filename));
                         break;
@@ -126,14 +126,14 @@ public class LauncherActivity extends MvpActivity<AppVersionUpdatePresenter> imp
         setContentView(R.layout.activity_launcher);
         ButterKnife.bind(this);
 
-        SmartSDNComponent component = ((SmartSDNApplication) getApplication()).getSmartSDNComponent();
-        DaggerLaunchComponent.builder().smartSDNComponent(component)
+        MvpAppComponent component = ((MvpAppApplication) getApplication()).getMvpAppComponent();
+        DaggerLaunchComponent.builder().mvpAppComponent(component)
                 .launchModule(new LaunchModule(this))
                 .launchServiceModule(new LaunchServiceModule())
                 .build()
                 .inject(this);
         preferences.putString("xuxu", "xuqinjun");
-        SmartSDNLoger.debug("=================" + preferences.getString("xuxu", null));
+        MvpLoger.debug("=================" + preferences.getString("xuxu", null));
         //TODO APP升级
         queryAppUpdate();
 
@@ -159,12 +159,12 @@ public class LauncherActivity extends MvpActivity<AppVersionUpdatePresenter> imp
 
     @Override
     public void showLoading() {
-        SmartSDNLoger.debug("=======开始dialog======");
+        MvpLoger.debug("=======开始dialog======");
     }
 
     @Override
     public void hideLoading() {
-        SmartSDNLoger.debug("=======关闭dialog======");
+        MvpLoger.debug("=======关闭dialog======");
     }
 
     @Override
@@ -301,7 +301,7 @@ public class LauncherActivity extends MvpActivity<AppVersionUpdatePresenter> imp
         //下载函数
         filename = appName; // + ".apk";//url.substring(url.lastIndexOf("/") + 1);
         url = url + appName;
-        SmartSDNLoger.debug("=======URL=url=======" + url);
+        MvpLoger.debug("=======URL=url=======" + url);
         //获取文件名
         URL myURL = new URL(url);
         URLConnection conn = myURL.openConnection();
@@ -384,13 +384,13 @@ public class LauncherActivity extends MvpActivity<AppVersionUpdatePresenter> imp
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        SmartSDNLoger.debug("requestCode: " + requestCode);
-        SmartSDNLoger.debug("resultCode: " + resultCode);
+        MvpLoger.debug("requestCode: " + requestCode);
+        MvpLoger.debug("resultCode: " + resultCode);
         if (requestCode == REQUEST_CODE) {
             if (Build.VERSION.SDK_INT >= 23) {
                 //检查系统是否有照相机权限
                 PermissionUtils permissionUtils = new PermissionUtils(this);
-                SmartSDNLoger.debug("======PERMISSIONS====" + permissionUtils.judgePermissions(PERMISSIONS));
+                MvpLoger.debug("======PERMISSIONS====" + permissionUtils.judgePermissions(PERMISSIONS));
                 if (permissionUtils.judgePermissions(PERMISSIONS)) {
                     ToastUtils.show(this, "您没有开启存储卡读写权限，部分功能可能无法正常使用");
                 }

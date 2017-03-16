@@ -25,16 +25,6 @@ import okhttp3.internal.http.RealResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okio.Okio;
 
-/**
- * <b>类名称：</b> OkhttpModule <br/>
- * <b>类描述：</b> <br/>
- * <b>创建人：</b> Lincoln <br/>
- * <b>修改人：</b> Lincoln <br/>
- * <b>修改时间：</b> 2016年08月12日 下午3:48<br/>
- * <b>修改备注：</b> <br/>
- *
- * @version 1.0.0 <br/>
- */
 @Module
 public class OkhttpModule {
 

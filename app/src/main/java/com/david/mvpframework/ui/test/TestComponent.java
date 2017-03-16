@@ -1,6 +1,6 @@
 package com.david.mvpframework.ui.test;
 
-import com.david.mvpframework.app.SmartSDNComponent;
+import com.david.mvpframework.app.MvpAppComponent;
 import com.david.mvpframework.ui.launch.module.LaunchServiceModule;
 import com.david.mvpframework.ui.launch.scope.LaunchScope;
 
@@ -12,7 +12,7 @@ import dagger.Component;
  * 邮箱：qjxu@elitect.com
  */
 @LaunchScope
-@Component(dependencies = SmartSDNComponent.class,
+@Component(dependencies = MvpAppComponent.class,
         modules = {TestModule.class, LaunchServiceModule.class})
 public interface TestComponent {
 
