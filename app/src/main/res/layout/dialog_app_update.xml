@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_update_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:background="@null">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_white"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:id="@+id/app_update_btn_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/app_update_cancel_btn"
+                    style="@style/SingleLineButton"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/city_color"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_white_btn"
+                    android:text="取消" />
+
+                <Button
+                    android:id="@+id/app_update_confirm_btn"
+                    style="@style/SingleLineButton"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="确认" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/app_update_describe_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/app_update_btn_layout"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                android:text="APP已有新版本,请升级到最新使用"
+                android:textColor="#858585" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="恭喜你,下单成功"
+                android:textColor="#347aea"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/app_update_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/icon_app_update_image" />
+    </RelativeLayout>
+
+</RelativeLayout>

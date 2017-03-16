@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/launcher_bd">
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_login_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/activity_launcher"
+        app:layout_constraintStart_toStartOf="@id/activity_launcher"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        tools:layout_editor_absoluteX="141dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="中国电信自服务平台"
+        android:textColor="@color/bg_White"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/activity_launcher"
+        app:layout_constraintStart_toStartOf="@id/activity_launcher"
+        app:layout_constraintTop_toBottomOf="@+id/logo_image"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="116dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:visibility="invisible"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+</android.support.constraint.ConstraintLayout>
