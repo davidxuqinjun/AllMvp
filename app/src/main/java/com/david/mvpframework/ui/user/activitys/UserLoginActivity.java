@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.david.mvpframework.R;
 import com.david.mvpframework.app.SmartSDNApplication;
 import com.david.mvpframework.app.SmartSDNComponent;
-import com.david.mvpframework.ui.base.BaseActivity;
+import com.david.mvpframework.ui.base.MvpActivity;
 import com.david.mvpframework.ui.user.been.response.UserLoginResponse;
 import com.david.mvpframework.ui.user.component.DaggerUserComponent;
 import com.david.mvpframework.ui.user.module.UserLoginModule;
@@ -13,16 +13,14 @@ import com.david.mvpframework.ui.user.module.UserServiceModule;
 import com.david.mvpframework.ui.user.presenter.UserLoginPresenter;
 import com.david.mvpframework.ui.user.view.UserLoginView;
 
-import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 
-public class UserLoginActivity extends BaseActivity implements UserLoginView {
+public class UserLoginActivity extends MvpActivity<UserLoginPresenter> implements UserLoginView {
 
     private SmartSDNApplication application;
 
-    @Inject
-    UserLoginPresenter presenter;
+    //@Inject
+    //UserLoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +41,9 @@ public class UserLoginActivity extends BaseActivity implements UserLoginView {
                 .userServiceModule(new UserServiceModule())
                 .build()
                 .inject(this);
+
+        //用户登录
+        //presenter.userLogin();
     }
 
     @Override
