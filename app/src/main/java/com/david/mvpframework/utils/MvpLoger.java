@@ -20,7 +20,7 @@ import android.util.Log;
 /**
  * 应用程序的Log管理
  */
-public final class SmartSDNLoger {
+public final class MvpLoger {
     public static boolean IS_DEBUG = true;
     public static boolean DEBUG_LOG = true;
     public static boolean SHOW_ACTIVITY_STATE = true;
